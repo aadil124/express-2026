@@ -1,14 +1,28 @@
 // const express = require("express");
 
 import express from "express";
+import home from "./pages/home.js";
+import about from "./pages/about.js";
+import contact from "./pages/contact.js";
+import login from "./pages/login.js";
+import submit from "./pages/submit.js";
 
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send(`<h1>This is home page</h1>`);
+  res.send(home());
 });
 app.get("/about", (req, res) => {
-  res.send(`<h1>This is about page</h1>`);
+  res.send(about());
+});
+app.post("/submit", (req, res) => {
+  res.send(submit());
+});
+app.get("/login", (req, res) => {
+  res.send(login());
+});
+app.get("/contact", (req, res) => {
+  res.send(contact());
 });
 
 app.listen(3200);
