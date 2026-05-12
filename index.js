@@ -53,6 +53,12 @@ client.connect().then((connection) => {
     const students = await collection.find().toArray();
     res.send(students);
   });
+  app.get("/api/:id", async (req, res) => {
+    console.log(req.params.id);
+    const collection = db.collection("students");
+    const students = await collection.find().toArray();
+    res.send(students);
+  });
 });
 
 app.listen(3200);
